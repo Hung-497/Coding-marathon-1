@@ -1,36 +1,69 @@
 import React, { useState } from "react";
 import "./BookCollectionManager.css";
+import Book from "./Book";
 
-
-function BookCollectionManager() {
+const BookCollectionManager = () => {
   const [books, setBooks] = useState([]);
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  const [newBook, setNewBook] = useState({
+    title: "",
+    author: "",
+    genre: "",
+    language: "",
+    edition: "",
+    pages: "",
+    rating: "",
+    year: "",
+  });
 
   // Handle input change for title
-  function handleTitleChange(event) {
-    setTitle(event.target.value);
-  }
-
-  // Handle input change for author
-  function handleAuthorChange(event) {
-    setAuthor(event.target.value);
-  }
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setNewBook((prevNewBook) => ({ ...prevNewBook, [name]: value }));
+  };
 
   // Add a new book to the list
-  function addBook() {
-    if (title.trim() !== "" && author.trim() !== "") {
-      setBooks((b) => [...b, { title, author }]);
-      setTitle("");
-      setAuthor(""); // Clear the input fields
+  const addBook = () => {
+    if (
+      newBook.title.trim() !== "" &&
+      newBook.author.trim() !== "" &&
+      newBook.genre.trim() !== "" &&
+      newBook.language.trim() !== "" &&
+      newBook.edition.trim() !== "" &&
+      newBook.pages.trim() !== "" &&
+      newBook.rating.trim() !== "" &&
+      newBook.year.trim() !== ""
+    ) {
+      setBooks((b) => [
+        ...b,
+        {
+          title: newBook.title,
+          author: newBook.author,
+          genre: newBook.genre,
+          language: newBook.language,
+          edition: newBook.edition,
+          pages: Number(newBook.pages),
+          rating: Number(newBook.rating),
+          year: Number(newBook.year),
+        },
+      ]);
+      setNewBook({
+        title: "",
+        author: "",
+        genre: "",
+        language: "",
+        edition: "",
+        pages: "",
+        rating: "",
+        year: "",
+      }); // Clear the input fields
     }
-  }
+  };
 
   // Delete a book from the list
-  function deleteBook(index) {
+  const deleteBook = (index) => {
     const updatedBooks = books.filter((_, i) => i !== index);
     setBooks(updatedBooks);
-  }
+  };
 
   return (
     <div className="app-container">
@@ -40,16 +73,74 @@ function BookCollectionManager() {
         <input
           type="text"
           placeholder="Enter book title..."
-          value={title}
-          onChange={handleTitleChange}
+          name="title"
+          value={newBook.title}
+          onChange={handleInputChange}
           className="input-field"
+          required
         />
         <input
           type="text"
           placeholder="Enter author name..."
-          value={author}
-          onChange={handleAuthorChange}
+          name="author"
+          value={newBook.author}
+          onChange={handleInputChange}
           className="input-field"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter genre..."
+          name="genre"
+          value={newBook.genre}
+          onChange={handleInputChange}
+          className="input-field"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter language..."
+          name="language"
+          value={newBook.language}
+          onChange={handleInputChange}
+          className="input-field"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter edition..."
+          name="edition"
+          value={newBook.edition}
+          onChange={handleInputChange}
+          className="input-field"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Enter pages..."
+          name="pages"
+          value={newBook.pages}
+          onChange={handleInputChange}
+          className="input-field"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Enter rating..."
+          name="rating"
+          value={newBook.rating}
+          onChange={handleInputChange}
+          className="input-field"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Enter year..."
+          name="year"
+          value={newBook.year}
+          onChange={handleInputChange}
+          className="input-field"
+          required
         />
         <button onClick={addBook} className="add-button">
           Add Book
@@ -63,24 +154,13 @@ function BookCollectionManager() {
         ) : (
           <ol className="books-list">
             {books.map((book, index) => (
-              <li key={index} className="book-item">
-                <div className="book-info">
-                  <span className="book-title">{book.title}</span>
-                  <span className="book-author">by {book.author}</span>
-                </div>
-                <button
-                  onClick={() => deleteBook(index)}
-                  className="delete-button"
-                >
-                  Delete
-                </button>
-              </li>
+              <Book key={index} book={book} onDelete={() => deleteBook(index)} />
             ))}
           </ol>
         )}
       </div>
     </div>
   );
-}
+};
 
 export default BookCollectionManager;
