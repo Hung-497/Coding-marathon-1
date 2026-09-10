@@ -20,7 +20,7 @@
   - [yes] Can the component or parts of it be reused in other parts of the application?
 
 - **Comments and Documentation**
-  - [no, there is no complex logic] Are there comments explaining complex logic?
+  - [no, because there is no complex logic] Are there comments explaining complex logic?
   - [no] Is there documentation for how to use the component?
 
 ## 3. Performance
