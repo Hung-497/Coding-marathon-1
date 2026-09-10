@@ -68,7 +68,7 @@ function SignupPage() {
       case 'fi': document.getElementById('greeting').innerHTML = 'Moi!'; document.getElementById('email-adress').innerHTML = `Sähköpostiosoitteesi on ${contactUsInformation.email}`; break;
       case 'en': document.getElementById('greeting').innerHTML = 'Hello!'; document.getElementById('email-adress').innerHTML = `Your email is ${contactUsInformation.email}`; break;
       case 'de': document.getElementById('greeting').innerHTML = 'Hallo!'; document.getElementById('email-adress').innerHTML = `Deine E-Mail-Adresse lautet ${contactUsInformation.email}`; break;
-      case 'fr': document.getElementById('greeting').innerHTML = 'Salut!'; document.getElementById('email-adress').innerHTML = `Votre adresse e-mail est ${contactUsInformation.email}`; break;
+      case 'fr': document.getElementById('greeting').innerHTML = 'Bonjour!'; document.getElementById('email-adress').innerHTML = `Votre adresse e-mail est ${contactUsInformation.email}`; break;
     }
 
 
