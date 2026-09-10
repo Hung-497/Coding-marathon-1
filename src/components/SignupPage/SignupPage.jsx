@@ -84,6 +84,7 @@ function SignupPage() {
   return (
     <div>
       <h2>SignupPage</h2>
+      
       <form onSubmit={onSubmit}>
         <div>
           <label htmlFor='email'>Email:</label>
@@ -98,7 +99,7 @@ function SignupPage() {
           <input id='confirmPassword' type='password' onChange={e => validateConfirm(e.target.value)} value={confirmPassword} required/>
         </div>
         <div>
-          <label htmlFor='nationality'>Phone:</label>
+          <label htmlFor='nationality'>Nationality:</label>
           <select
             name='nationality'
             onChange={e => validateNationality(e.target.value)}
@@ -114,6 +115,7 @@ function SignupPage() {
             <option>fr</option>
           </select>
         </div>
+        <p>(Please provide all fields with valid data for the submission button to appear)</p>
         <button id='submit'>Submit</button>
       </form>
       <div id='userText'>
