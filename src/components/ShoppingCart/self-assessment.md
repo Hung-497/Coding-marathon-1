@@ -45,3 +45,27 @@ I just need to practice the 2nd method more, i will use it on other components o
 
 ## 5. Additional Notes
 Styling was handled by AI.
+
+## 6. Grading
+I would give myself a score of 45, I did my best without the help of AI and the app is working as required.
+
+I would give my team a score of 35, they did well when it comes to branching and collaboration.
+
+### 1. What did you implement?
+
+I implemented a shopping cart application where users can add items by entering the name, brand, quantity, subtotal, tax, and availability. The added items are displayed in a list, and users can delete items from the cart.
+
+### 2. What React concepts did you practice?
+
+I practiced using `useState` to manage the cart and form inputs. I also practiced controlled components, handling events with `onChange` and `onClick`, using `.map()` to render a list, passing props to components, and extracting an individual item into a separate `Item.jsx` component.
+
+### 3. What was challenging?
+
+The most challenging part was parameters, sometimes i forget to add a parameter to a function when needed and i get an error.
+
+### 4. What would you improve in your code?
+
+I would use the 2nd method instead of this, but this one jsut makes more sense to me.
+### 5. How did your team collaborate?
+
+We had no problems deciding what component each member take care of, everything was smooth, we asked each other and didnt start coding until everything was set up for everyone.
