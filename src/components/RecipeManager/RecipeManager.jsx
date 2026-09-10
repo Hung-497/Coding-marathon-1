@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import "./RecipeManager.css";
+import Recipe from "./Recipe";
 
 function RecipeManager() {
   const[recipes, setRecipes] = useState([])
   const[name, setName] = useState("")
   const[description, setDescription] = useState("")
   const[cuisine, setCuisine] = useState("")
-  const[difficulty, setDifficulty] = useState("")
+  const[difficulty, setDifficulty] = useState("Easy")
   const[cookTime, setCookTime] = useState("")
   const[servings, setServings] = useState("")
   const[allergens, setAllergens] = useState("")
@@ -51,7 +52,7 @@ function RecipeManager() {
       setName("")
       setDescription("")
       setCuisine("")
-      setDifficulty("")
+      setDifficulty("Easy")
       setCookTime("")
       setServings("")
       setAllergens("")
@@ -130,10 +131,8 @@ function RecipeManager() {
 
        <ol className="recipe-list">
         {recipes.map((recipe, index) => (
-          <li key={index}>
-            {recipe.name}: {recipe.ingredients}
-            <button onClick={() => deleteRecipe(index)}>Delete</button>
-          </li>
+          <Recipe key={index} recipe={recipe} onDelete={() => deleteRecipe(index)}
+          />
         ))}
       </ol>
     </div>

@@ -51,3 +51,30 @@
 
 ## 5. Additional Notes
 - The Recipe Manager works well for the current project requirements. The component is simple and easy to understand. Separating the individual recipe into 'Recipe.jsx' also makes the code more organized and reusable
+
+## 6.Grading
+
+## Individual Grading
+
+Grade: 44/45
+I completed the Recipe Manager with the required functionality and tried my best to make sure the application works as expected eventhough it was still bugging and i had to try to fix it many times
+
+## Group Grading 
+
+Grade: 35/35 
+We collaborated well, divided the tasks clearly, and handled Git branching and merging together without any major problems
+
+## Reflections
+
+*Answer:**
+
+```
+What did you implement? I worked on Recipe Manager page
+
+What React concepts did you practice? i learned how to use useState correctly
+
+What was challenging? The most challenging part was managing the data and making sure the recipe information was correctly added and displayed. I also had some problems with the component structure and styling at first 
+
+What would you improve in your code? I would make and improve the responsive design
+
+How did your team collaborate? We worked very well helped each other with bugs, and discussed our changes through GitHub
