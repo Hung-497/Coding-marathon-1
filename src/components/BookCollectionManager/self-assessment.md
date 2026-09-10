@@ -1,61 +1,230 @@
 # Self-Assessment: BookCollectionManager.jsx
 
+## Individual Score
 
-## 1. Functionality
-- **Does the component meet the requirements?**
-  - [x] Does it handle all the specified features (e.g., adding, removing, or updating books)?
-  - [x] Are edge cases handled (e.g., empty inputs, duplicate entries)?
-      - Empty required inputs are handled and books cannot be added until all required fields contain values.
-  - [ ] Are there any bugs or unexpected behaviors?
+**45/45**
 
-- **How well does the component integrate with other parts of the application?**
-  - [x] Are props and state managed appropriately?
-      - Book information and delete call back func are passed to `Book` through props
-      - `BookCollectionManager` manages the book list and form state.
-      - Each book is rendered using a separate `Book` component
+### useState and Controlled Forms: 15/15
 
-## 2. Code Quality
-- **Readability**
-  - [x] Is the code easy to understand for other developers?
-  - [x] Are variable and function names descriptive and meaningful?
-    - Names such as `books`, `newBook`, `addBook`, `deleteBook`, and `handleInputChange` clearly describe their purpose.
+I used `useState` to manage both the book list and the form data.
 
-- **Reusability**
-  - [x] Can the component or parts of it be reused in other parts of the application?
+The form contains all eight required fields:
 
-- **Comments and Documentation**
-  - [x] Are there comments explaining complex logic?
-    - Comments are included for the main operations such as handling input changes, adding books, and deleting books and the code is simple enough to understand without comments.
-  - [ ] Is there documentation for how to use the component?
+- title
+- author
+- genre
+- language
+- edition
+- pages
+- rating
+- year
 
-## 3. Performance
-- **Efficiency**
-  - [ ] Are there any unnecessary re-renders or performance bottlenecks?
-  - [x] Is the component optimized for large datasets (if applicable)?
+All inputs are controlled components because their values come from the
+`newBook` state and are updated using `handleInputChange`.
 
-- **State Management**
-  - [x] Is state managed efficiently (e.g., minimal state, derived state)?
-  - [x] Are hooks (e.g., `useState`, ) used correctly?
-    - `useState` is used for both the book list and controlled form inputs.
-    - State is updated without directly mutating existing state.
+The form is cleared after a book is successfully added.
 
-## 4. Overall Assessment
-- **Strengths**
-  - Props are used to pass book data and the delete callback from the parent component.
-  - Simple and easy to understand.
-  - Use `useState` correctly.
-  - Books are rendered using `.map()`.
-  - The form is cleared after successfully adding a book.
+### Code Quality: 15/15
 
-- **Areas for Improvement**
-  - Don't allow duplicate books.
-  - - Using the array index as the React `key` could be improved by using a unique book ID.
-  - Separate documentation for the component could be added if the project becomes larger.
+The code is clear and organized.
 
-- **Action Plan**
-  - Add more stricly validations for `addBook`.
-  - Add unique Id for each book.
-  - Add documentation if the component is reused elsewhere in the application.
+I used descriptive variable and function names such as:
 
-## 5. Additional Notes
-- The book collection manager works and follows the current project requirements. The component is readable and maintainable.
+- `books`
+- `newBook`
+- `handleInputChange`
+- `addBook`
+- `deleteBook`
+
+The `BookCollectionManager` manages the book list and form state.
+
+The individual book display is extracted into a separate `Book.jsx`
+component. Book data and the delete callback are passed from the parent
+component to `Book` through props.
+
+The book list is rendered using `.map()`, and books are deleted using
+`.filter()` without directly modifying the existing state.
+
+### Self-Assessment: 15/15
+
+I reviewed my implementation against the requirements and identified both the strengths of my implementation and areas that could still be improved.
+The component meets the required functionality for this activity.
+
+---
+
+## Group Score
+
+**35/35**
+
+### Git Branching and Merging: 20/20
+
+Each team member worked on their own Git branch and developed a separate
+component.
+
+After completing our work, we created pull requests and merged the branches
+into `main`.
+
+The branches were deleted after the initial merge, but they were restored
+before submission so that the individual branch history remains available.
+
+We also communicated with each other when checking the final application and
+identified issues that needed follow-up fixes.
+
+### GitHub Pages Deployment: 15/15
+
+The completed React application was successfully deployed using GitHub Pages.
+
+After merging the team's components into `main`, the project was built and
+deployed to the `gh-pages` branch.
+
+We checked the deployed website and confirmed that the latest version of the
+application was available online.
+
+---
+
+## Contribution
+
+I implemented the `BookCollectionManager` component.
+
+The component allows users to:
+
+- Add a new book
+- View all books in the collection
+- Delete a book from the collection
+
+Each book contains all of the required information:
+
+- Title
+- Author
+- Genre
+- Language
+- Edition
+- Pages
+- Rating
+- Year
+
+I also extracted the individual book display into a separate `Book.jsx`
+component and passed the required book information and delete callback
+through props.
+
+---
+
+## Reflection
+
+### 1. What did you implement?
+
+I implemented the Book Collection Manager.
+
+Users can enter information about a book, add the book to the collection,
+view all added books, and delete books from the collection.
+
+I added all eight required fields, including the new `year` field.
+
+I also extracted each individual book into a separate `Book.jsx` component.
+
+### 2. What React concepts did you practice?
+
+I practiced several React concepts during this activity:
+
+- `useState`
+- Controlled form inputs
+- Event handling
+- Updating objects in state
+- Updating arrays in state
+- Rendering lists using `.map()`
+- Removing items using `.filter()`
+- Passing data through props
+- Passing callback functions through props
+- Extracting components into separate files
+
+I also practiced working with Git branches, commits, pull requests, merging,
+and GitHub Pages deployment as part of the team activity.
+
+### 3. What was challenging?
+
+One challenge was managing many form fields while keeping every input
+controlled.
+
+Instead of creating a separate state variable for every input, I stored all
+book form values inside one `newBook` object.
+
+I then used the `name` attribute of each input together with one
+`handleInputChange` function to update the correct property.
+
+This helped reduce repeated code and made the form state easier to manage.
+
+### 4. What would you improve in your code?
+
+One improvement would be to give every book a unique ID.
+
+Currently, the array index is used as the React `key` and is also used when
+deleting a book. For a larger application, using a unique ID would be more
+reliable.
+
+I could also add stronger validation, for example:
+
+- Checking that the rating is within a reasonable range
+- Checking that the page count is greater than zero
+- Checking that the publication year is reasonable
+- Preventing duplicate books
+
+These improvements are not required for the current activity, but they could
+make the component more robust.
+
+### 5. How did your team collaborate?
+
+Each team member selected a different component and worked on their own Git
+branch.
+
+We communicated with each other while developing the application and helped
+identify problems that appeared after the components were combined.
+
+When everyone finished their work, we created pull requests and merged the
+branches into `main`.
+
+After noticing some issues in the final application, we communicated with
+the responsible team members so that they could fix their components on
+their own branches.
+
+The branches were also restored after the initial merge so that the branch
+history remains available for assessment.
+
+Finally, the completed application was deployed successfully to GitHub Pages.
+
+---
+
+## Strengths
+
+- Uses `useState` correctly
+- Uses controlled form inputs
+- Includes all eight required book fields
+- Implements Create, Read, and Delete
+- Uses `.map()` to render books
+- Uses `.filter()` to delete books
+- Extracts the individual book into `Book.jsx`
+- Uses props correctly
+- Clears the form after successfully adding a book
+- Prevents books with empty required fields from being added
+- Code is simple and readable
+
+---
+
+## Areas for Improvement
+
+- Use unique IDs instead of array indexes
+- Add stronger validation for numerical fields
+- Optionally prevent duplicate books
+- Improve accessibility and user feedback for invalid inputs
+
+---
+
+## Overall Assessment
+
+The Book Collection Manager meets the requirements of the Coding Marathon.
+
+It correctly uses React state, controlled inputs, list rendering, component
+extraction, props, Create/Read/Delete operations, and event handling.
+
+I also participated in the team Git workflow by working on a separate branch,
+creating commits, merging through a pull request, and helping prepare the
+final application for GitHub Pages deployment.
