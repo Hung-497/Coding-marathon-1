@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import "./RecipeManager.css";
 import Recipe from "./Recipe";
 
@@ -142,4 +142,3 @@ function RecipeManager() {
 
  
 export default RecipeManager;
-
